@@ -7,6 +7,7 @@ export default class View {
     this.strokeWidth = document.getElementById("strokeWidth");
     this.eraserTool = document.getElementById("eraserTool");
     this.btns = document.querySelectorAll(".btn");
+    this.colorPalette = document.getElementById("colorPalette")
     window.addEventListener("load", () => {
       this.canvas.width = this.canvas.offsetWidth;
       this.canvas.height = this.canvas.offsetHeight;
@@ -40,18 +41,16 @@ export default class View {
   onToolKit(callBack , helper) {
     this.btns.forEach((btn) => {
       btn.addEventListener("click", () => {
-
-        if(btn.id === 'eraserTool' || btn.id === 'brushTool' || btn.id === "SprayTool " || btn.id === "penTool") {
+ 
         this.btnId = btn.id;
-            
-        }
+
         this.btns.forEach((otherBtn) => {
           otherBtn.classList.remove("active");
         });
         btn.classList.add("active");
+        callBack(btn.id)
 
-
-        callBack(this.btnId ,helper);
+        // callBack(this.btnId ,helper);
         
       });
     });
