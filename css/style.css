@@ -9,7 +9,7 @@
 .app {
     width: 100%;
     height: 100vh;
-    background-color: red;
+    background-color: rgb(177, 177, 183);
     display: flex;
 
 }
@@ -47,6 +47,7 @@
 #paint {
     width: 100%;
     height: 100%;
+    
 }
 
 .btn {

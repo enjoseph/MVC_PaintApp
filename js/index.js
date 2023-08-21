@@ -5,7 +5,6 @@ import Model from "./paintModel.js";
 
 
 function initialize () {
-    console.log('index started');
     const view = new View();
     const model = new Model();
     const controller = new Controller( model, view);
@@ -15,22 +14,3 @@ function initialize () {
 
 
 window.addEventListener ("DOMContentLoaded" , initialize); 
-
-
-
-
-
-
-
-
-
-
-
-// function stopDraw () { 
-//     isDrawing = false;
-// }
-
-
-
-
-// canvas.addEventListener('mousemove', drawing);
