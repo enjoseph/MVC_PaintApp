@@ -7,13 +7,15 @@ export default class Model {
     // console.log(this.selectedTool);
   }
 
-  drawing(e, ctx, callBack )  {
+  drawing(e, ctx, callBack , colorPalette)  {
     if (!this.isDrawing) return;
     console.log('drawing ' + this.selectedTool);
-    if(this.selectedTool === undefined) alert('Bir Tool Secin') 
+    if(this.selectedTool === undefined) this.selectedTool = "penTool"
     if ( this.selectedTool === "penTool") {
+      ctx.strokeStyle = colorPalette.value && colorPalette.value.length > 1 ? `${colorPalette.value}` : "#000000";
+      // ctx.strokeStyle = `${colorPalette.value}`;
+    console.log( colorPalette.value);
       ctx.lineTo(e.offsetX, e.offsetY);
-    ctx.strokeStyle = "#000000";
       ctx.stroke();
     } else if( this.selectedTool === "eraserTool" ){
       callBack(e, ctx);
@@ -48,4 +50,12 @@ export default class Model {
     this.selectedTool = callback
     console.log( callback);
   }
+  
+
+  removeAll (ctx , canvas) {
+    ctx.clearRect(0, 0,  canvas.width , canvas.height);
+   
+  }
+
+  
 }
