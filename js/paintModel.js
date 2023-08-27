@@ -18,7 +18,6 @@ export default class Model {
   drawing(e, ctx, eraserCallBack, colorPalette, drawRect) {
     if (!this.isDrawing) return;
     if (this.selectedTool === undefined) return;
-    console.log(this.snapshot);
 
      ctx.putImageData(this.snapshot, 0, 0);
 
@@ -33,8 +32,7 @@ export default class Model {
     } else if (this.selectedTool === "eraserTool") {
       eraserCallBack(e, ctx);
     } else if (this.selectedTool === "rectangel") {
-      console.log("isledi");
-      drawRect(e, ctx);
+      drawRect(e, ctx , colorPalette);
     }
   }
 
@@ -87,20 +85,18 @@ export default class Model {
     this.downloadLink.click();
   }
 
-  drawRect(e, ctx) {
+  drawRect(e, ctx , colorPalette) {
     ctx.strokeRect(
       e.offsetX,
       e.offsetY,
       this.mouseX - e.offsetX,
       this.mouseX - e.offsetY
     );
-    console.log(
-      "isledi",
-      e.offsetX,
-      e.offsetY,
-      e.offsetX - e.offsetX,
-      e.offsetY - e.offsetY
-    );
-    console.log(this.mouseX, this.mouseY);
+
+    ctx.strokeStyle =
+    colorPalette.value && colorPalette.value.length > 1
+      ? `${colorPalette.value}`
+      : "#000000";
+
   }
 }
