@@ -7,10 +7,10 @@ export default class Controller {
     // Initialize the controller
     init() {
       // Handle drawing action with appropriate tools
-      this.view.onDrawing(this.model.drawing.bind(this) , this.view.ctx , this.model.eraserTool.bind(this) , this.view.colorPalette);
+      this.view.onDrawing(this.model.drawing.bind(this) , this.view.ctx , this.model.eraserTool.bind(this) , this.view.colorPalette , this.model.drawRect.bind(this) );
       
       // Start drawing action
-      this.view.onStartDrawing(this.model.startDraw.bind(this) , this.view.ctx , this.view.strokeWidth);
+      this.view.onStartDrawing(this.model.startDraw.bind(this) , this.view.ctx , this.view.strokeWidth );
       
       // Stop drawing action
       this.view.onStopDrawing(this.model.stopDraw.bind(this) , this.view.ctx );

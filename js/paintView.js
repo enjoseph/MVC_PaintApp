@@ -69,8 +69,8 @@ export default class View {
 
   // Handle canvas drawing start
   onStartDrawing(callback, ctx, strokeWidth) {
-    this.canvas.addEventListener("mousedown", () => {
-      callback(ctx, strokeWidth);
+    this.canvas.addEventListener("mousedown", (e) => {
+      callback(ctx, strokeWidth , e , this.canvas.width ,  this.canvas.height);
     });
   }
 
@@ -82,9 +82,9 @@ export default class View {
   }
 
   // Handle canvas drawing during mouse movement
-  onDrawing(callBack, ctx, eraserTool, selectedTool) {
+  onDrawing(callBack, ctx, eraserTool, selectedTool , drawRect) {
     this.canvas.addEventListener("mousemove", (e) => {
-      callBack(e, ctx, eraserTool, selectedTool);
+      callBack(e, ctx, eraserTool, selectedTool, drawRect);
     });
   }
 
