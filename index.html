@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <section class="app">
+        <div class="tools">
+            <h1>Paint App</h1>
+            <div class="ClearAndSave">
+            <button id="clearAll">Clear All</button>
+            <button id="Save">Save</button>
+            </div>
+            <div class="toolKit">
+                <span id="penTool" class=" btn"><i class="fa-solid fa-pen"></i></span>
+            <span id="eraserTool" class="btn"><i class="fa-solid fa-eraser"></i></span>
+            <span id="rectangel" class="btn"><i class="fa-solid fa-vector-square"></i></span>
+            </div>
+
+            <p style="width: 100%; text-align: center; margin-top: 2vw;">Font Size </p>
+
+            <input id="strokeWidth" type="range" value="1" min="1" max="20">
+
+
+            <div class="dimensionPanel ">
+                <p style="width: 100%; text-align: center;">interest %</p>
+                <input class="dimensionWidth"   type="number">-
+                <input class="dimensionHeight"     type="number">
+            </div>
+            
+            <p style="width: 100%; text-align: center; margin-top: 2vw;">Hex code </p>
+            <input  id="colorPalette" type="text" value="#" minlength="4" maxlength="7">
+
+
+
+
+        </div>
+
+        <div class="paintZone">
+            <canvas id="paint" style="border: 1px solid black; background-color: #ffffff;"></canvas>
+        </div>
+    </section>
+
+
+    <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
